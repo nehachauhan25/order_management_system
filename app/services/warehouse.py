@@ -24,8 +24,8 @@ class WarehouseService:
             status = "ORDER_PROCESSING"
         elif warehouse_status == self.status.ORDER_PICKED:
             status = "ORDER_SHIPPED"
-        elif warehouse_status == self.status.ORDER_ON_HOLD_:
-            status = "ORDER_ON_HOLD"
+        # elif warehouse_status == self.status.ORDER_ON_HOLD_:
+        #     status = "ORDER_ON_HOLD"
         else :
             status = "ORDER_PROCESSING"
         
