@@ -21,7 +21,7 @@ class WarehouseService:
         order_id = warehouse.get('order_id') 
 
         if warehouse_status == self.status.ORDER_RECEIVED:
-            status = "ORDER_PROCESSING"
+            status = "ORDER_"
         elif warehouse_status == self.status.ORDER_PICKED:
             status = "ORDER_SHIPPED"
         else :
