@@ -7,10 +7,10 @@ class WarehouseController:
         self.warehouse = WarehouseService(db)
 
    
-    def update_warehouse(self,id):
+    def update(self,id):
         data = request.json
         status = data['status']
-        self.warehouse.update_warehouse(ObjectId(id), status)
+        self.warehouse.update(ObjectId(id), status)
         return jsonify({"message": "status updated"})
 
     

@@ -11,16 +11,16 @@ class OrderModel:
     def __init__(self, db):
         self.collection = db['order']
         self.status = status
-    def create_order(self, product_name):
+    def create(self, product_name):
         return self.collection.insert_one({"product_name": product_name}).inserted_id
 
+    def find(self, id):
+        return self.collection.find_one({"_id":id})
+    
     def update(self, id, update_query):
-        return self.collection.find_one_and_update(
+        return self.collection.update_one(
             {"_id": id}, {"$set": update_query}
         )
 
-    def get_orders(self):
-        return self.collection.find()
-
-    def delete_order(self, order_id):
+    def delete(self, order_id):
         return self.collection.find_one_and_delete({"_id": order_id})

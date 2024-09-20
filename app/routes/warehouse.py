@@ -6,8 +6,8 @@ def create_warehouse_routes(db):
     warehouse = WarehouseController(db)
 
     @warehouse_bp.route('/warehouse/<id>', methods=['PUT'])
-    def update_warehouse(id):
-        return warehouse.update_warehouse(id)
+    def update(id):
+        return warehouse.update(id)
 
    
     return warehouse_bp

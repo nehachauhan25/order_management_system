@@ -11,7 +11,7 @@ class OrderService:
         self.logistics_model = LogisticsModel(db)
         self.delivery_model = DeliveryModel(db)
 
-    def calc_average_status(self, logistic_status, warehouse_status, delivery_status="Order Awaiting Out of delivery"):
+    def calc_average_status(self, logistic_status, warehouse_status, delivery_status="Order_Awaiting_Out_of_delivery"):
         status = "Order Processing"
         if (warehouse_status == "Order Received" or warehouse_status == "Order Packed" or warehouse_status == "Order Verified") or (warehouse_status == "Order Picked" and logistic_status == "Order Awaiting Pickup"):
             status = "Order Processing"
@@ -51,7 +51,7 @@ class OrderService:
         order_status = self.calc_average_status(logistic_status, warehouse_status)
         self.warehouse_model.update_warehouse_status(order_id, warehouse_status)
         self.logistics_model.update_logistics_status(order_id, logistic_status)
-        self.order_model.update_order_status(order_id, order_status)
+        self.order_model.update(order_id, order_status)
 
     def get_orders(self):
         return self.order_model.get_orders()
