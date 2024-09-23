@@ -28,3 +28,4 @@ class WarehouseModel:
         return self.collection.delete_one({"_id": id})
     
     
+
