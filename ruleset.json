@@ -1,0 +1,20 @@
+[
+  {
+    "conditions": {
+      "and": [
+        {
+          "===": [
+            {
+              "var": ["warehouse_status"]
+            },
+            "ORDER_ON_HOLD"
+          ]
+        }
+      ]
+    },
+    "event": {
+      "action_name": "hold_status",
+      "value": ["ORDER_ON_HOLD"]
+    }
+  }
+]
